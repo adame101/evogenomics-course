@@ -1,0 +1,19 @@
+---
+title: "paper"
+author: "Andrea Dame"
+date: "9/6/2020"
+output: html_document
+---
+
+---
+title: 'My Title'
+author: "Me me me me!"
+date: Aug 31, 2020
+output: html_document
+bibliography: data/references.bib
+---
+  
+Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
+
+# REFERENCES
+```
