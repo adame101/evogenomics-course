@@ -1,7 +1,7 @@
 # example 1
 x= 3
 y= 15
- x+y
+x+y
 18
  x-y
 -12
