@@ -1,4 +1,3 @@
-
 date: "9/2/2020"
 output: html_document
 ---
@@ -6,6 +5,10 @@ output:
   html_document: default
   pdf_document: default
 ---
+```{r}
+download.file(url = "https://ndownloader.figshare.com/files/2292169",
+              destfile = "data/portal_data_joined.csv")
+```
 
 This is a rendering of hmtl files from the course repository  (https://github.com/jeffreyblanchard/evogeno) for Evolutionary Genomics & Bioinformatics taught at the University of Massachusetts Amherst in Fall 2020 by Prof. Jeffrey Blanchard
 
