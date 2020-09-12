@@ -24,11 +24,12 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 
 ### R Basics
 
-* 1 : [Introduction to R and Reproducible Research](EvoGeno_Lab1.html)
+* Lab 1 : [Introduction to R and Reproducible Research](Lab1.html)
 <<<<<<< HEAD
-* 2 : [git, GitHub and Rstudio project](EvoGeno_Lab2_GitHub.html)
+* Lab 2 : [git, GitHub and Rstudio project](Lab2.html)
+* Lab 3 : [Data Wrangling](Lab3A.html, Lab3B.html)
 =======
-* 2 : [git, GitHub and Rstudio project](EvoGeno_Lab2_GitHub.html)
+
 >>>>>>> df2f26335d979c75c658d6ef3aaeebc68a93bb8c
 
 
