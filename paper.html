@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andrea Dame" />
@@ -269,7 +270,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -343,18 +343,6 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -384,7 +372,11 @@ $(document).ready(function () {
 <p>Application written in R <span class="citation">[@RCoreTeam]</span> using the Shiny framework <span class="citation">[@Chang2015]</span>.</p>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
-<p>```</p>
+<p>``` <span class="citation">@Misc</span>{Chang2015, Title = {shiny: Web Application Framework for R. R package version 0.12.1},</p>
+<p>Author = {Chang, W. and Cheng, J. and Allaire, JJ. and Xie, Y. and McPherson, J. }, Year = {2015},</p>
+<p>Type = {Computer Program}, Url = {<a href="http://CRAN.R-project.org/package=shiny" class="uri">http://CRAN.R-project.org/package=shiny</a>} }</p>
+<p><span class="citation">@Article</span>{RCoreTeam, Title = {R: A Language and Environment for Statistical Computing}, Author = {{R Core Team}}, Year = {2015},</p>
+<p>Type = {Journal Article}, Url = {<a href="http://www.R-project.org" class="uri">http://www.R-project.org</a>} }</p>
 </div>
 
 
@@ -404,6 +396,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
