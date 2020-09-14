@@ -1,9 +1,3 @@
-# evogenomics-course
+# Evogenomics-course
 
-<<<<<<< HEAD
-#Update
-
-#Test
-=======
-
->>>>>>> 0c9704e55856fa0889c3f32160eaf9e2dfc8074f
+#This is the repository for 2020 Bio597/697 Evolutionary Genomics & Bioinformatics course at UMass Amherst
