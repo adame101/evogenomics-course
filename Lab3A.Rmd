@@ -4,11 +4,14 @@ author: "Andrea Dame"
 date: "9/7/2020"
 output: html_document
 ---
-
 ```{r}
 library(tidyverse)
 ```
 
+```{r, eval=FALSE}
+download.file(url = "https://ndownloader.figshare.com/files/2292169",
+              destfile = "data/portal_data_joined.csv")
+```
 
 ```{r}
 surveys <- read.csv("data/portal_data_joined.csv")
@@ -176,7 +179,7 @@ str(my_date)
 my_date <- ymd(paste("2015", "1", "1", sep = "-")) 
 str(my_date)
 ```
-```{r}
+```{r, eval=FAlSE}
 paste(surveys$year, surveys$month, surveys$day, sep = "-")
 ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
