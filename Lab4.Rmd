@@ -1,0 +1,117 @@
+---
+title: "Lab4"
+author: "Andrea Dame"
+date: "9/14/2020"
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+```{r}
+report_03_11_2020 <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-11-2020.csv")) %>%
+  rename(Country_Region = "Country/Region", Province_State = "Province/State")
+```
+```{r}
+str(report_03_11_2020)
+```
+```{r}
+View(report_03_11_2020)
+```
+
+```{r}
+library(DT)
+```
+
+```{r}
+datatable(report_03_11_2020)
+```
+###Exercise Part 1
+
+```{r}
+report_03_13_2020 <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv"))
+```
+```{r}
+str(report_03_13_2020)
+```
+
+```{r}
+View(report_03_13_2020)
+```
+
+```{r}
+report_09_13_2020 <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-13-2020.csv"))
+```
+
+```{r}
+str(report_09_13_2020)
+```
+```{r}
+datatable(report_03_13_2020)
+```
+
+```{r}
+datatable(report_09_13_2020)
+```
+
+```{r}
+Country <- report_03_11_2020 %>% group_by(Country_Region)
+summarize(Country)
+```
+```{r}
+US <- report_03_11_2020 %>% filter(Country_Region == "US") %>% group_by(Province_State)
+summarize(US)
+```
+```{r}
+Death <- report_03_11_2020 %>% arrange(desc(Deaths)) %>% slice(1:10)
+View(Death)
+```
+
+###Exercise Part 2
+```{r}
+report_03_12_2020 <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-12-2020.csv")) %>% 
+rename(Country_Region = "Country/Region", Province_State = "Province/State")
+```
+
+```{r}
+report_09_12_2020 <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-12-2020.csv"))
+```
+
+```{r}
+Deaths_March_2020 <- report_03_12_2020 %>% arrange(desc(Deaths)) %>% slice(1:10)
+View(Deaths_March_2020)
+```
+
+
+```{r}
+ggplot(data = Deaths_March_2020, aes(x = Deaths,  y = Country_Region)) + 
+    geom_point(stat = 'identity') 
+```
+```{r}
+Deaths_September_2020 <- report_09_12_2020 %>% arrange(desc(Deaths)) %>% slice(1:10)
+View(Deaths_September_2020)
+```
+
+```{r}
+ggplot(data = Deaths_September_2020, aes(x = Deaths,  y = Country_Region)) + 
+    geom_point(stat = 'identity')
+```
+```{r}
+Confirmed_March_2020 <- report_03_12_2020 %>% arrange(desc(Confirmed)) %>% slice(1:10)
+View(Confirmed_March_2020)
+```
+
+```{r}
+ggplot(data = Confirmed_March_2020, aes(x = Confirmed,  y = Country_Region)) + 
+    geom_point(stat = 'identity')
+```
+
+```{r}
+Confirmed_September_2020 <- report_09_12_2020 %>% arrange(desc(Confirmed)) %>% slice(1:10)
+View(Confirmed_September_2020)
+```
+
+```{r}
+ggplot(data = Confirmed_September_2020, aes(x = Confirmed,  y = Country_Region)) + 
+    geom_point(stat = 'identity')
+```
+
