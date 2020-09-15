@@ -1,0 +1,100 @@
+---
+title: "Lab4a"
+author: "Andrea Dame"
+date: "9/14/2020"
+output: html_document
+---
+
+```{r}
+library("tidyverse")
+```
+
+```{r}
+ggplot(data = surveys)
+```
+```{r}
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length))
+```
+```{r}
+ggplot(data = surveys, aes(x = weight, y = hindfoot_length)) +
+  geom_point()
+```
+
+```{r}
+# Assign plot to a variable
+surveys_plot <- ggplot(data = surveys, 
+                       mapping = aes(x = weight, y = hindfoot_length))
+
+# Draw the plot
+surveys_plot + 
+    geom_point()
+```
+
+```{r}
+# This is the correct syntax for adding layers
+surveys_plot +
+  geom_point()
+```
+
+###Challenge 1
+```{r}
+install.packages("hexbin")
+library("hexbin")
+```
+
+```{r}
+surveys_plot +
+ geom_hex()
+```
+###What are the relative strengths and weaknesses of a hexagonal bin plot compared to a scatter plot?
+### This plot is benefical for visualizing large data sets that may be overplotted in point graphs. This may not be as useful when looking for overall trends in large data sets. 
+
+```{r}
+ggplot(data = surveys, aes(x = weight, y = hindfoot_length)) +
+    geom_point()
+```
+```{r}
+ggplot(data = surveys, aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1)
+```
+
+```{r}
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1, color = "blue")
+```
+
+```{r}
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1, aes(color = species_id))
+```
+###Challenge 2
+###Use what you just learned to create a scatter plot of weight over species_id with the plot types showing in different colors. Is this a good way to show this type of data?
+```{r}
+ggplot(data = surveys, 
+       mapping = aes(x = species_id, y = weight)) +
+   geom_point(aes(color = plot_type))
+```
+
+```{r}
+ggplot(data = surveys, mapping = aes(x = species_id, y = weight)) +
+    geom_boxplot()
+```
+
+```{r}
+ggplot(data = surveys, mapping = aes(x = species_id, y = weight)) +
+    geom_boxplot(alpha = 0) +
+    geom_jitter(alpha = 0.3, color = "tomato")
+```
+###Challenge 3
+```{r}
+ggplot(data = surveys, mapping = aes(x = species_id, y = weight)) + scale_y_log10() +
+    geom_boxplot()
+```
+```{r}
+ggplot(data = surveys, mapping = aes(x = species_id, y = hindfoot_length)) +
+    geom_boxplot(alpha = 0) +
+    geom_jitter(alpha = 0.3, color = "purple")
+
+
+```
+

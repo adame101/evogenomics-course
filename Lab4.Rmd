@@ -86,15 +86,27 @@ View(Deaths_March_2020)
 ggplot(data = Deaths_March_2020, aes(x = Deaths,  y = Country_Region)) + 
     geom_point(stat = 'identity') 
 ```
+```{r, eval = FALSE}
+ggplot(data = Deaths_September_2020, aes(x = Country_Region,  y = Deaths)) + 
+    geom_bar(stat = 'identity')
+```
+
+
 ```{r}
 Deaths_September_2020 <- report_09_12_2020 %>% arrange(desc(Deaths)) %>% slice(1:10)
 View(Deaths_September_2020)
 ```
 
 ```{r}
-ggplot(data = Deaths_September_2020, aes(x = Deaths,  y = Country_Region)) + 
+ggplot(data = Deaths_September_2020, aes(x = Death,  y = Country_Region)) + 
     geom_point(stat = 'identity')
 ```
+```{r}
+ggplot(data = Deaths_September_2020, aes(x = Country_Region,  y = Deaths)) + 
+    geom_bar(stat = 'identity')
+```
+
+
 ```{r}
 Confirmed_March_2020 <- report_03_12_2020 %>% arrange(desc(Confirmed)) %>% slice(1:10)
 View(Confirmed_March_2020)
@@ -106,12 +118,22 @@ ggplot(data = Confirmed_March_2020, aes(x = Confirmed,  y = Country_Region)) +
 ```
 
 ```{r}
+ggplot(data = Confirmed_March_2020, aes(x = Confirmed,  y = Country_Region)) + 
+    geom_point(stat = 'identity')
+```
+
+```{r}
+ggplot(data = Confirmed_March_2020, aes(x = Country_Region,  y = Confirmed)) + 
+    geom_bar(stat = 'identity')
+```
+
+```{r}
 Confirmed_September_2020 <- report_09_12_2020 %>% arrange(desc(Confirmed)) %>% slice(1:10)
 View(Confirmed_September_2020)
 ```
 
 ```{r}
-ggplot(data = Confirmed_September_2020, aes(x = Confirmed,  y = Country_Region)) + 
-    geom_point(stat = 'identity')
+ggplot(data = Confirmed_September_2020, aes(x = Country_Region,  y = Confirmed)) + 
+    geom_bar(stat = 'identity')
 ```
 
