@@ -1,24 +1,18 @@
-<<<<<<< HEAD
 =======
 date: "9/2/2020"
 output: html_document
->>>>>>> 0c9704e55856fa0889c3f32160eaf9e2dfc8074f
 ---
 output:
   html_document: default
   pdf_document: default
 ---
-<<<<<<< HEAD
-=======
 ```{r}
 download.file(url = "https://ndownloader.figshare.com/files/2292169",
               destfile = "data/portal_data_joined.csv")
 ```
->>>>>>> 0c9704e55856fa0889c3f32160eaf9e2dfc8074f
+
 
 This is a rendering of hmtl files from the course repository  (https://github.com/jeffreyblanchard/evogeno) for Evolutionary Genomics & Bioinformatics taught at the University of Massachusetts Amherst in Fall 2020 by Prof. Jeffrey Blanchard
-
-![](images/HF_portrait3.png)
 
 ## Labs
 
@@ -28,9 +22,7 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 <<<<<<< HEAD
 * Lab 2 : [git, GitHub and Rstudio project](Lab2.html)
 * Lab 3 : [Data Wrangling](Lab3A.html, Lab3B.html)
+* Lab 4 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab4.html, Lab4a.html)
 =======
 
->>>>>>> df2f26335d979c75c658d6ef3aaeebc68a93bb8c
 
-
->>>>>>> 0c9704e55856fa0889c3f32160eaf9e2dfc8074f
