@@ -7,6 +7,7 @@ output: html_document
 ```{r}
 library(tidyverse)
 ```
+
 ```{r}
 report_03_11_2020 <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-11-2020.csv")) %>%
   rename(Country_Region = "Country/Region", Province_State = "Province/State")
@@ -86,7 +87,7 @@ View(Deaths_March_2020)
 ggplot(data = Deaths_March_2020, aes(x = Deaths,  y = Country_Region)) + 
     geom_point(stat = 'identity') 
 ```
-```{r, eval = FALSE}
+```{r}
 ggplot(data = Deaths_September_2020, aes(x = Country_Region,  y = Deaths)) + 
     geom_bar(stat = 'identity')
 ```
@@ -98,7 +99,7 @@ View(Deaths_September_2020)
 ```
 
 ```{r}
-ggplot(data = Deaths_September_2020, aes(x = Death,  y = Country_Region)) + 
+ggplot(data = Deaths_September_2020, aes(x = Deaths,  y = Country_Region)) + 
     geom_point(stat = 'identity')
 ```
 ```{r}

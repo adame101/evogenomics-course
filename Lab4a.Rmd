@@ -8,6 +8,10 @@ output: html_document
 ```{r}
 library("tidyverse")
 ```
+```{r}
+surveys <- read.csv("data/portal_data_joined.csv")
+```
+
 
 ```{r}
 ggplot(data = surveys)
@@ -37,7 +41,7 @@ surveys_plot +
 ```
 
 ###Challenge 1
-```{r}
+```{r, eval=FALSE}
 install.packages("hexbin")
 library("hexbin")
 ```
@@ -90,11 +94,12 @@ ggplot(data = surveys, mapping = aes(x = species_id, y = weight)) +
 ggplot(data = surveys, mapping = aes(x = species_id, y = weight)) + scale_y_log10() +
     geom_boxplot()
 ```
+
 ```{r}
 ggplot(data = surveys, mapping = aes(x = species_id, y = hindfoot_length)) +
     geom_boxplot(alpha = 0) +
     geom_jitter(alpha = 0.3, color = "purple")
 
-
 ```
+
 
