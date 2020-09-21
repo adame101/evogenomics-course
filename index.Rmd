@@ -6,11 +6,6 @@ output:
   html_document: default
   pdf_document: default
 ---
-```{r}
-download.file(url = "https://ndownloader.figshare.com/files/2292169",
-              destfile = "data/portal_data_joined.csv")
-```
-
 
 This is a rendering of hmtl files from the course repository  (https://github.com/jeffreyblanchard/evogeno) for Evolutionary Genomics & Bioinformatics taught at the University of Massachusetts Amherst in Fall 2020 by Prof. Jeffrey Blanchard
 
@@ -19,7 +14,6 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 ### R Basics
 
 * Lab 1 : [Introduction to R and Reproducible Research](Lab1.html)
-<<<<<<< HEAD
 * Lab 2 : [git, GitHub and Rstudio project](Lab2.html)
 * Lab 3 : [Data Wrangling](Lab3A.html, Lab3B.html)
 * Lab 4 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab4.html, Lab4a.html)
