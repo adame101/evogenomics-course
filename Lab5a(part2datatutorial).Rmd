@@ -1,0 +1,15 @@
+---
+title: "Lab5"
+author: "Andrea Dame"
+date: "9/21/2020"
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+##Exercise 1: Part 2 of Data Visualization tutorial
+```{r}
+
+
+```
+
