@@ -9,7 +9,7 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 ### R Basics
 
 * Lab 1 : [Introduction to R and Reproducible Research](Lab1.html)
-* Lab 2 : [git, GitHub and Rstudio project](Lab2.html)
+* Lab 2 : [git, GitHub and Rstudio project](index.html) 
 * Lab 3 : [Data Wrangling (Part 1)](Lab3A.html)
 * Lab 3 : [Data Wrangling (Part 2)](Lab3B.html)
 * Lab 4 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab4.html)
@@ -19,5 +19,6 @@ This is a rendering of hmtl files from the course repository  (https://github.co
  * Lab 5 Extra : [Data wrangling and graphing COVID-19 reporting data ](Lab5.html) 
 * Lab 6 : [Data Maps and Interactive Graphs from the COVID-19 reporting data](Lab6.html) 
 =======
-
+#REFEREENCE
+ bibliography: references.bib
 
