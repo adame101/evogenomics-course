@@ -2,7 +2,7 @@ title: "Evolutionary Genomics & Bioinformatics"
 author: "Andrea Dame"
 date: "9/06/2020"
 output: html_document
-bibliography: data/references.bib
+bibliography: references.bib
 ---
 Welcome!
 My name is Andrea Dame and I am a senior undergradyate microbiology major at UMass Amherst. 
