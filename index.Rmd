@@ -1,14 +1,11 @@
-=======
-date: "9/2/2020"
+title: "Evolutionary Genomics & Bioinformatics"
+author: "Andrea Dame"
+date: "9/06/2020"
 output: html_document
+bibliography: data/references.bib
 ---
-output:
-  html_document: default
-  pdf_document: default
-editor_options: 
-  chunk_output_type: console
----
-
+Welcome!
+My name is Andrea Dame and I am a senior undergradyate microbiology major at UMass Amherst. 
 This is a rendering of hmtl files from the course repository  (https://github.com/adame101/evogenomics-course) for Evolutionary Genomics & Bioinformatics taught at the University of Massachusetts Amherst in Fall 2020 by Prof. Jeffrey Blanchard
 
 ## Labs
