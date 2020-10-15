@@ -14,7 +14,7 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 * Lab 3 : [Data Wrangling (Part 2)](Lab3B.html)
 * Lab 4 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab4.html)
 * Lab 4 : [Data wrangling and graphing COVID-19 reporting data (Part 2)](Lab4a.html)
-* Lab 5 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab5a(part2datatutorial.html))
+* Lab 5 : [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab5a(part2datavisual).html))
  * Lab 5 : [Data wrangling and graphing COVID-19 reporting data (Part 2)](Lab5.html) 
  * Lab 5 Extra : [Data wrangling and graphing COVID-19 reporting data ](Lab5extra.html) 
 * Lab 6 : [Data Maps and Interactive Graphs from the COVID-19 reporting data](Lab6.html) 
