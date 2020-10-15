@@ -154,14 +154,11 @@ anim_save("deaths_5_countries.gif", p)
 
 #Exercise 1
 
-![Top 10 Countries COVID-19 Deaths](Rplot01.png)
-
-
 ```{r}
 ppi <- 300
 png("Rplot01.png", width=3*ppi, height=3*ppi, res=ppi)
 ```
-
+![Top 10 Countries COVID-19 Deaths](Rplot01.png)
 
 #Exercise 2
 ```{r}
@@ -181,15 +178,19 @@ ggplotly(p)
 
 #Exercise 3
 ```{r}
-time_series_long_joined %>% 
+data_time_2 <- time_series_long_joined %>% 
     group_by(Country_Region,Date) %>% 
     summarise_at(c("Confirmed", "Deaths"), sum) %>% 
-    filter (Country_Region %in% c("United Kingdom","France","Italy","Brazil", "India","Peru", "Spain", "Iran", "Mexico", "US"))
-  p <- ggplot(data_time, aes(x = Date,  y = Confirmed, color = Country_Region)) + 
-      geom_point() +
-      geom_line() +
-      ggtitle("Top 10 COuntries COVID-19 Deaths") +
+    filter (Country_Region %in% c("United Kingdom","France","Italy","Brazil", "India","Peru", "Spain", "Iran", "Mexico", "US")) %>% 
+    ggplot(aes(x = Date,  y = Deaths, color = Country_Region)) + geom_point() +
+    geom_line() +
+    ggtitle("COVID-19 Top 10 Death Totals") +
       geom_point(aes(group = seq_along(Date))) +
       transition_reveal(Date) 
+animate(data_time_2, end_pause = 15)
+anim_save("deaths_10_countries.gif", data_time_2)
 ```
+
+
+
 
