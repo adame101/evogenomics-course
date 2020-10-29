@@ -1,0 +1,164 @@
+---
+title: "Lab9x"
+author: "Andrea Dame"
+date: "10/28/2020"
+output: html_document
+---
+
+```{r}
+hour <- 11
+if(hour < 13) { greeting = "You are early"
+        
+} 
+```
+
+```{r}
+if(hour < 13) { greeting = "You are early"
+        
+} else {
+  greeting = "You are late";
+}
+```
+
+```{r}
+if(hour < 13) { greeting = "You are early"
+        ## do something
+} else if(hour < 15)  { greeting = "You are on time"
+        ## do something different
+} else { greeting = "You are late"
+        ## do something different
+}
+```
+
+```{r}
+x <- runif(1, 0, 10)  
+if(x > 3) {
+        y <- 10
+} else {
+        y <- 0
+}
+```
+
+```{r}
+for(i in 1:15) {
+        print(i)
+}
+```
+
+```{r}
+x <- c("h", "e", "l", "l", "o")
+for(i in 1:5) {
+        ## Print out each element of 'x'
+        print(x[i])  
+}
+```
+
+```{r}
+for(i in seq_along(x)) {   
+        print(x[i])
+}
+```
+
+```{r}
+for(letter in x) {
+        print(letter)
+}
+
+```
+
+```{r}
+for(i in 1:5) print(x[i])
+```
+
+```{r}
+x <- matrix(1:6, 2, 3)
+for(i in seq_len(nrow(x))) {
+        for(h in seq_len(ncol(x))) {
+                print(x[i, h])
+        }   
+}
+```
+
+```{r}
+count <- 0
+while(count < 10) {
+        print(count)
+        count <- count + 1
+}
+```
+
+```{r}
+z <- 5
+set.seed(1)
+while(z >= 4 && z <= 11) {
+        coin <- rbinom(2, 2, 1)
+        
+        if(coin == 2) {  ## random walk
+                z <- z + 2
+        } else {
+                z <- z - 2
+        } 
+}
+print(z)
+```
+
+```{r}
+f <- function() {
+}
+## Functions have their own class
+class(f)  
+"function"
+## Execute this function
+f()       
+```
+
+```{r}
+f <- function() {
++         cat("What's up?\n")
+} 
+f
+```
+
+```{r}
+f <- function(num) {
+        for(i in seq_len(num)) {
+             cat("Nothing much\n")
+        }
+ }
+f(2)
+```
+
+```{r}
+f <- function(num) {
+        hello <- "Happy Halloween!\n"
+         for(i in seq_len(num)) {
+                 cat(hello)
+       }
+        chars <- nchar(hello) * num
+        chars
+ }
+ meaningoflife <- f(2)
+ print(meaningoflife)
+```
+
+```{r}
+f()
+```
+
+```{r}
+f <- function(num = 1) {
+        hello <- "Scary skeleton!\n"
+         for(i in seq_len(num)) {
+                 cat(hello)
+         }
+         chars <- nchar(hello) * num
+         chars
+ }
+ f()    
+f(2)
+```
+
+```{r}
+f(num = 2)
+```
+
