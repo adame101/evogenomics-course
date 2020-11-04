@@ -26,7 +26,6 @@ png("tree_00.png", width=3*ppi, height=3*ppi, res=ppi)
 ```{r}
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(ggtree)
 ```
 
 ```{r}
@@ -243,4 +242,6 @@ tree2 <- read.tree("fastree_result.tre")
 ggtree(tree2, aes(color=group), layout="circular") + geom_tiplab() +
 ggtitle("circular")
 ```
+
+
 
