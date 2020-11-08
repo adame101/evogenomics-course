@@ -1,7 +1,7 @@
 
 ---
 Welcome!
-My name is Andrea Dame and I am a senior undergradyate microbiology major at UMass Amherst. 
+My name is Andrea Dame and I am a senior undergraduate microbiology major at UMass Amherst. 
 This is a rendering of hmtl files from the course repository  (https://github.com/adame101/evogenomics-course) for Evolutionary Genomics & Bioinformatics taught at the University of Massachusetts Amherst in Fall 2020 by Prof. Jeffrey Blanchard
 
 ## Labs
