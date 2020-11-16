@@ -141,9 +141,6 @@ f <- function(num) {
  print(meaningoflife)
 ```
 
-```{r}
-f()
-```
 
 ```{r}
 f <- function(num = 1) {
