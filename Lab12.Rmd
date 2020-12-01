@@ -1,0 +1,37 @@
+---
+title: "Lab12"
+author: "Andrea Dame"
+date: "11/16/2020"
+output: html_document
+---
+```{r}
+BiocManager::install("RCy3")
+```
+```{r}
+library(RCy3)
+cytoscapePing()
+```
+# My first Network
+```{r}
+nodes <- data.frame(id=c("node 0","node 1","node 2","node 3"),
+           group=c("A","A","B","B"), # optional
+           stringsAsFactors=FALSE)
+edges <- data.frame(source=c("node 0","node 0","node 0","node 2"),
+           target=c("node 1","node 2","node 3","node 3"),
+           interaction=c("inhibits","interacts","activates","interacts"),  # optional
+           weight=c(5,3,5,9), # optional
+           stringsAsFactors=FALSE)
+
+createNetworkFromDataFrames(nodes,edges)
+```
+
+```{r}
+getwd()
+```
+
+##Basic Data Visualization Tutorial Graph
+
+![Gal_Yeast_Example_Graph] (/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/Yeast_Example_Graph.png)
+
+##Differentially Expressed Genes Network Analysis
+![String Network - ovarian cancer -1.png] (/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/String Network - ovarian cancer -1.png)

@@ -1,0 +1,13 @@
+---
+title: "Lab13"
+author: "Andrea Dame"
+date: "11/30/2020"
+output: prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+# Sprucing up RMarkdown and Github page 
+```{r}
+library(prettydoc)
+```
+
