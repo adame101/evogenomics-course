@@ -2,8 +2,9 @@
 title: "Lab13"
 author: "Andrea Dame"
 date: "11/30/2020"
-output: prettydoc::html_pretty:
-    theme: cayman
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
     highlight: github
 ---
 # Sprucing up RMarkdown and Github page 
@@ -11,3 +12,6 @@ output: prettydoc::html_pretty:
 library(prettydoc)
 ```
 
+# Below is the link to my new website!
+
+https://adame101.github.io/MyWebsite/

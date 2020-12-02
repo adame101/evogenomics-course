@@ -25,6 +25,8 @@ This is a rendering of hmtl files from the course repository  (https://github.co
 * Lab 10  : [Population genomics based on high throughput sequencing (HTS)](Lab10.html)
 * Lab 11  : [Microbiome Analysis using dada2 and phyloseq](Lab11.html)
 * Lab 11 Extra  : [Microbiome Analysis using Phyloseq](Lab11x.html)
+* Lab 12  : [Network Analysis Using Cytoscape and RCy3](Lab12.html)
+* Lab 13  : [Sprucing Up RMarkdown and Github Page](Lab13.html)
 ======= 
 #REFERENCE
  bibliography: references.bib
