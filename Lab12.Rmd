@@ -4,13 +4,25 @@ author: "Andrea Dame"
 date: "11/16/2020"
 output: html_document
 ---
+### An Overview of RCy3: These are the final graphs I made when I completed the tutorial.
+![](/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/simple network2.png)
+![](/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/simple network1.png)
+# Testing Cytoscape Connection
 ```{r}
-BiocManager::install("RCy3")
-```
-```{r}
+if(!"RCy3" %in% installed.packages()){
+     install.packages("BiocManager")
+     BiocManager::install("RCy3")
+}
 library(RCy3)
-cytoscapePing()
 ```
+
+```{r}
+cytoscapePing ()
+    cytoscapeVersionInfo ()
+
+```
+
+
 # My first Network
 ```{r}
 nodes <- data.frame(id=c("node 0","node 1","node 2","node 3"),
@@ -25,13 +37,10 @@ edges <- data.frame(source=c("node 0","node 0","node 0","node 2"),
 createNetworkFromDataFrames(nodes,edges)
 ```
 
-```{r}
-getwd()
-```
+##Cytoscape: Basic Data Visualization Tutorial Graph
 
-##Basic Data Visualization Tutorial Graph
+![](/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/Yeast_Example_Graph.png)
 
-![Gal_Yeast_Example_Graph] (/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/Yeast_Example_Graph.png)
 
-##Differentially Expressed Genes Network Analysis
-![String Network - ovarian cancer -1.png] (/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/String Network - ovarian cancer -1.png)
+##Cytoscape: Differentially Expressed Genes Network Analysis Graph
+ ![](/Users/andreadame/anaconda3/Applications/EvoGenomics/genomics-course/String Network - ovarian cancer - 1.png)
