@@ -1,0 +1,161 @@
+---
+title: "giant_virus_virsorter"
+author: "Caroline Martin"
+date: "6/29/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+all_viral_scores <- read_csv("all_viral_scores_binID_gtdb.csv")
+```
+## Contigs
+```{r}
+gv8_contigs <- all_viral_scores %>%
+  filter(NCLDV > 0.8) %>% #does the bin have a contig with a GV score above 0.8?
+  filter(length > 10000) %>%  #contig length over 10kb? 
+  filter(gtdb_taxa == "None")
+```
+
+```{r}
+gv8_contigs
+```
+
+```{r}
+library(DT)
+datatable(gv8_contigs)
+```
+
+```{r}
+gv8_contigs %>% 
+  filter(max_score_group == "NCLDV") %>% 
+  group_by(contigID) %>% filter(is.na(`giant virus`)) %>% 
+  summarize(Hallmark = sum(hallmark), Viral = sum(viral), Cellular = sum(cellular), binID, NCLDV, `IMG link`) %>% 
+  filter(Hallmark > 0) %>% 
+  filter(Cellular < 10)
+```
+
+## Bins
+```{r}
+gv8_contigs %>% 
+  filter(max_score_group == "NCLDV") %>% filter(!is.na(`giant virus`)) %>% 
+  group_by(binID) %>% 
+  summarize(Hallmark = sum(hallmark), Viral = sum(viral), Cellular = mean(cellular), `giant virus`) %>% 
+  filter(Hallmark > 0) 
+```
+
+## Separate Bins because I can't figure out how to count them each separately :(
+```{r}
+gv8_contigs %>% 
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID == "3300020659-4") %>% 
+  rename(giant_virus = "giant virus") %>% 
+  summarize(giant_virus, binID, contigID, Hallmark = sum(hallmark), Viral = sum(viral), Cellular = sum(cellular), binID, NCLDV) %>% 
+  filter(Hallmark > 0) %>% 
+  filter(Cellular < 10)
+```
+
+```{r}
+gv8_contigs %>% 
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID == "3300020668-3") %>% 
+  summarize(`giant virus`, contigID, Hallmark = sum(hallmark), Viral = sum(viral), Cellular = sum(cellular), binID, NCLDV, `IMG link`) 
+  
+```
+
+```{r}
+gv8_contigs %>% 
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID == "3300020905-1") %>% 
+  rename(giant_virus = "giant virus") %>% 
+  summarize(giant_virus, contigID, Hallmark = sum(hallmark), Viral = sum(viral), Cellular = sum(cellular), binID, NCLDV) %>% 
+  filter(Hallmark > 0) #%>% 
+  #filter(Cellular < 10)
+```
+
+```{r}
+all_viral_scores %>%  filter(binID == "3300020626-2")
+```
+# Filters the bins that aren't NA
+
+#Summarize length of annotated GV
+```{r}
+all_viral_scores %>% group_by(binID, `giant virus`) %>% 
+  filter(!is.na(`giant virus`)) %>% 
+  group_by(binID) %>% 
+  summarize(length = sum(length), Viral = mean(viral), Cellular = mean(cellular), `giant virus`)
+```
+# NCLDV Score of Known NCLDV from Schulz 2020
+
+```{r}
+all_viral_scores %>% group_by(binID == '3300020744-1') %>% 
+  filter(!is.na(`giant virus`)) %>% 
+  group_by(binID) %>% 
+  summarize(Hallmark = sum(hallmark), Viral = sum(viral), `giant virus`)
+Terestrivirus
+```
+
+
+```{r}
+Hyperion <- all_viral_scores %>%  filter(binID == "3300020757-5")
+```
+
+```{r}
+Sylvan <- all_viral_scores %>%  filter(binID == "3300020974-4")
+```
+
+```{r}
+Homa <- all_viral_scores %>%  filter(binID == "3300020904-8")
+```
+
+```{r}
+Daso <- all_viral_scores %>%  filter(binID == "3300020831-4")
+```
+
+```{r}
+Solum <- all_viral_scores %>%  filter(binID == "3300020823-3")
+```
+
+```{r}
+Barre <- all_viral_scores %>%  filter(binID == "3300020795-4	")
+```
+
+```{r}
+Satyr <- all_viral_scores %>%  filter(binID == "3300020767-5")
+```
+
+```{r}
+Harvfo <- all_viral_scores %>%  filter(binID == "3300020765-1")
+```
+
+```{r}
+Gaea <- all_viral_scores %>%  filter(binID == "3300020744-1")
+```
+
+```{r}
+Soli <- all_viral_scores %>%  filter(binID == "3300020659-4")
+```
+
+```{r}
+Edafo <- all_viral_scores %>%  filter(binID == "3300020651-1")
+```
+
+```{r}
+terrestri <- all_viral_scores %>%  filter(binID == "3300020631-1")
+```
+
+```{r}
+Known_NCLDV <- rbind(Hyperion, Sylvan, Homa, Daso, Solum, Barre, Satyr, Harvfo, Gaea, Soli, Edafo, terrestri)
+Known_NCLDV
+```
+# Summarize length and mean viral score 
+
+```{r}
+Known_NCLDV %>%  group_by(MinimetagenomeID) %>% 
+  summarize(length = sum(length), Viral = mean(viral), `giant virus`, NCLDV = mean(NCLDV))
+```
+
+
