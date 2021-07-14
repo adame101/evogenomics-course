@@ -1,0 +1,56 @@
+---
+title: "giant_virus_virsorter"
+author: "Andrea Dame"
+date: "6/29/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+View(all_viral_scores_binID_gtdb)
+```
+# Filter out scores of less than 0.8, and none less than 10 kb
+```{r}
+gv8_contigs <- all_viral_scores_binID_gtdb %>% filter(NCLDV > 0.8) %>% group_by(binID) %>% filter(length > 10000)
+gv8_contigs
+```
+# Make binID a factor instead of chr 
+```{r}
+binID <- as.factor(gv8_contigs$binID) 
+```
+
+# BinID can now be counted for number of unique bins 
+```{r}
+binID_count <- unique(factor(gv8_contigs$binID))
+binID_count
+```
+# Contigs with 1 or more viral hallmark gene present 
+```{r}
+gv8_contigs_w_hallmark <- gv8_contigs %>% filter(hallmark > 0)
+```
+# Contigs with 1 or more viral hallmark gene present that has no prior gtdb taxa annotated
+```{r}
+gv8_contigs_w_hallmark_gtdb_taxa <- gv8_contigs_w_hallmark %>% filter(gtdb_taxa == 'None')
+```
+# Counting the amount of bins differently  
+```{r}
+gv8_contigs %>% count(binID)
+```
+```{r}
+gv8_contigs %>% filter(max_score_group == "NCLDV") %>% group_by(binID) %>% summarize(hallmark = sum(hallmark), Viral = sum(viral), Cellular = sum(cellular)) %>% filter(hallmark >0) %>%  filter(Cellular < 10)
+```
+```{r}
+
+```
+
+
+
+
+
+
+
+

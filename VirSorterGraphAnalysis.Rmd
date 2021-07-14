@@ -1,0 +1,133 @@
+---
+title: "Big Qs"
+author: "Andrea Dame"
+date: "7/14/2021"
+output:
+  html_document:
+    highlight: kate
+    theme: united
+    toc: yes
+    toc_depth: 3
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+## Big Questions
+* How many Gv genomes do we have?
+* How many GV genomes do we have in bins?
+* How many are unbinned?
+* How many contigs are most likely to be GV?
+
+
+## What we've filtered so far
+
+Started with cut off score of 10 kb, and 0.8, and max score group labled as NCLDV
+ 
+Of those, how many are binned?
+```{r}
+# load data wrangling package
+library(tidyverse)
+```
+
+```{r}
+# load all Virsorter data
+all_viral_scores <- read_csv("all_viral_scores_binID_gtdb.csv")
+```
+
+## Unbinned filtered contigs
+```{r}
+gv8_contigs_unbin <- all_viral_scores %>%
+  filter(NCLDV > 0.8) %>% #the bin has a contig with a GV score above 0.8
+  filter(length > 10000) %>%  #contig length over 10kb 
+  filter(max_score_group == "NCLDV") %>% filter(binID == 'None')
+gv8_contigs_unbin
+```
+
+## Histogram of unbinned filtered contigs with MinimetagenomeID 
+```{r}
+# Making minimetagenomeID a factor 
+gv8_contigs_unbin$MinimetagenomeID <- as.factor(gv8_contigs_unbin$MinimetagenomeID)
+
+Hist_gv8_unbin <- ggplot(data = gv8_contigs_unbin,  aes(gv8_contigs_unbin$MinimetagenomeID)) + 
+  geom_histogram(stat = "count", col = 'blue', fill = 'purple') +
+  labs(title="Histogram of MinimetagenomeID for filtered Giant Virus contigs", x="MinimetagenomeID", y="Count") +
+  coord_flip()
+Hist_gv8_unbin
+```
+
+
+## Binned filtered contigs 
+
+```{r}
+gv8_contigs_binned <- all_viral_scores %>%
+  filter(NCLDV > 0.8) %>% #the bin has a contig with a GV score above 0.8
+  filter(length > 10000) %>%  #contig length over 10kb 
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID !='None') %>%   
+  filter(is.na(`giant virus`)) %>% 
+  filter(gtdb_taxa == "None")
+
+gv8_contigs_binned$binID <- as.factor(gv8_contigs_binned$binID)
+gv8_contigs_binned
+```
+
+## Histogram of binned contigs using binID
+```{r}
+Hist_gv8_binned <- ggplot(data = gv8_contigs_binned,  aes(gv8_contigs_binned$binID)) + 
+  geom_histogram(stat = "count", col = 'blue', fill = 'purple') +
+  labs(title="Histogram of filtered Giant Virus contigs using binID", x="binID", y="Count") +
+  coord_flip()
+Hist_gv8_binned
+```
+
+## GV unbinned contigs unbinned length of each minimetagenome 
+```{r}
+gv8_contigs_unbin_count <- all_viral_scores %>%
+  filter(NCLDV > 0.8) %>% #the bin has a contig with a GV score above 0.8
+  filter(length > 10000) %>%  
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID == 'None') %>% 
+  group_by(MinimetagenomeID) %>% 
+  summarize(total_length = sum(length))
+gv8_contigs_unbin_count
+
+```
+
+
+## Barplot of unbinned contig lengths
+```{r}
+gv8_contigs_unbin_count$MinimetagenomeID <- as.factor(gv8_contigs_unbin_count$MinimetagenomeID)
+
+Bar_gv8_unbinned_count <- ggplot(data = gv8_contigs_unbin_count,  aes(x = gv8_contigs_unbin_count$MinimetagenomeID, y = total_length)) + 
+  geom_bar(stat = 'identity') +
+  scale_y_continuous(labels = scales::comma) +
+  labs( title = "Unbinned GV Contig Total Length", x="MinimetagenomeID", y="Total Length") +
+  coord_flip()
+Bar_gv8_unbinned_count
+```
+## Binned GV Contig length of each bin
+```{r}
+gv8_contigs_binned_count <- all_viral_scores %>%
+  filter(NCLDV > 0.8) %>% #the bin has a contig with a GV score above 0.8
+  filter(length > 10000) %>%  #contig length over 10kb 
+  filter(max_score_group == "NCLDV") %>% 
+  filter(binID !='None') %>%   
+  filter(is.na(`giant virus`)) %>% 
+  filter(gtdb_taxa == "None") %>% 
+  group_by(binID) %>% 
+  summarise(total_length = sum(length))
+gv8_contigs_binned_count$binID <- as.factor(gv8_contigs_binned_count$binID)
+gv8_contigs_binned_count
+```
+## Barplot of binned contigs length
+```{r}
+Bar_gv8_binned_count <- ggplot(data = gv8_contigs_binned_count,  aes(x = gv8_contigs_binned_count$binID, y = total_length)) + 
+  geom_bar(stat = 'identity') +
+  scale_y_continuous(labels = scales::comma) +
+  labs( title = "Binned GV Contigs Total Length", x="BinID", y="Total Length") +
+  coord_flip()
+Bar_gv8_binned_count
+
+```
+
+## Are these minimetagenomeIDs found in previous GV genomes? 
